@@ -4,6 +4,7 @@ import Test from "./Lab02/Test";
 import Login from "./Lab02/screen2a";
 import ratting from "./Lab02/screen2b";
 import Ratting from "./Lab02/screen2b";
+import GeneratorPass from "./Lab02/screen2c";
 
 export default function App() {
   return (
@@ -12,7 +13,8 @@ export default function App() {
     // </View>
     // <Test />
     // <Login />
-    <Ratting />
+    // <Ratting />
+    <GeneratorPass />
   );
 }
 
