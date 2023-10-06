@@ -1,26 +1,41 @@
+import * as React from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, TextInput, Button, Image } from "react-native";
+import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
-export default function TwoA() {
+export default function Login() {
+  const [name, setName] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const login = () => {
+    alert("Login Success! Hello " + name + ", Your Password is:  " + password);
+  };
+
   return (
     <LinearGradient colors={["#FBCB00", "#BF9A00"]} style={styles.container}>
       <View>
         <Text style={styles.text1}>LOGIN</Text>
-        <TextInput placeholder="Name" style={styles.input}></TextInput>
-        <TextInput placeholder="Password" style={styles.input}></TextInput>
+        <TextInput
+          placeholder="Name"
+          style={styles.input}
+          onChangeText={setName}
+        ></TextInput>
+        <TextInput
+          placeholder="Password"
+          style={styles.input}
+          onChangeText={setPassword}
+        ></TextInput>
 
         <View style={styles.btnLogin}>
-          <Text style={styles.textLogin}>LOGIN</Text>
+          <Button onPress={login} color="#060000" title="LOGIN"></Button>
         </View>
-        <Text style={styles.textAcc}>CREATE ACCOUNT</Text>
+        <Text style={styles.textAcc}>Forgot your password?</Text>
 
         <StatusBar style="auto" />
       </View>
     </LinearGradient>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -76,7 +91,7 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto",
     fontStyle: "normal",
     fontSize: 18,
-    fontWeight: "700",
+    fontWeight: "550",
     lineHeight: 21,
     marginTop: 30,
     textAlign: "center",
