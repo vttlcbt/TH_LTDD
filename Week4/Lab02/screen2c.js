@@ -7,12 +7,50 @@ export default function GeneratorPass() {
   const [pass, setPass] = React.useState();
   const [pass1, setPass1] = React.useState();
 
+  const lowers = "abcdefghijklmnopqrstuvwxyz"; // thường
+  const uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // hoa
+  const numbers = "0123456789"; // số
+  const symbols = "!@#$%^&*_-+=";
+
+  const incLower = document.getElementById("lower");
+  const incUpper = document.getElementById("upcase");
+  const incNumbers = document.getElementById("number");
+  const incSymbols = document.getElementById("symbol");
+
+  const generatePassword = (length, characters) => {
+    let password = "";
+    for (let i = 0; i < length; i++) {
+      password += characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+    }
+    return password;
+  };
+
   const genPass = () => {
     let lengthPW = Number(pass);
-    let newpw = Math.random()
-      .toString(36)
-      .slice(lengthPW * -1);
-    setPass1(newpw);
+    if (isNaN(lengthPW)) {
+      alert("Nhập độ dài cho password");
+      return;
+    }
+    if (lengthPW < 4 || lengthPW > 10) {
+      alert("Password từ 4-10 ký tự");
+      return;
+    }
+
+    let characters = "";
+    incLower.checked ? (characters += lowers) : "";
+    incUpper.checked ? (characters += uppers) : "";
+    incNumbers.checked ? (characters += numbers) : "";
+    incSymbols.checked ? (characters += symbols) : "";
+    let passwordTxt = generatePassword(lengthPW, characters);
+
+    setPass1(passwordTxt);
+
+    // let newpw = Math.random()
+    //   .toString(36)
+    //   .slice(lengthPW * -1);
+    // setPass1(newpw);
   };
   return (
     <View style={styles.container}>
@@ -32,23 +70,24 @@ export default function GeneratorPass() {
         </View>
         <View style={styles.inputBox}>
           <Text style={styles.checkbox_text}>Include lowercase</Text>
-          <input style={styles.checkbox} type="checkbox" id="yes" />
+          <input style={styles.checkbox} type="checkbox" id="lower" />
         </View>
 
         <View style={styles.inputBox}>
           <Text style={styles.checkbox_text}>Include upcase letters</Text>
-          <input style={styles.checkbox} type="checkbox" id="yes" />
+          <input style={styles.checkbox} type="checkbox" id="upcase" />
         </View>
         <View style={styles.inputBox}>
           <Text style={styles.checkbox_text}>Include number</Text>
-          <input style={styles.checkbox} type="checkbox" id="yes" />
+          <input style={styles.checkbox} type="checkbox" id="number" checked />
         </View>
         <View style={styles.inputBox}>
           <Text style={styles.checkbox_text}>Include special symbol</Text>
-          <input style={styles.checkbox} type="checkbox" id="yes" />
+          <input style={styles.checkbox} type="checkbox" id="symbol" />
         </View>
         <View style={styles.btnGen}>
           <Button
+            id="generate"
             title="Generate password"
             color="transparent"
             onPress={genPass}

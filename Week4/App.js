@@ -5,6 +5,7 @@ import Login from "./Lab02/screen2a";
 import ratting from "./Lab02/screen2b";
 import Ratting from "./Lab02/screen2b";
 import GeneratorPass from "./Lab02/screen2c";
+import Order from "./Lab02/screen2d";
 
 export default function App() {
   return (
@@ -14,7 +15,8 @@ export default function App() {
     // <Test />
     // <Login />
     // <Ratting />
-    <GeneratorPass />
+    // <GeneratorPass />
+    <Order />
   );
 }
 
