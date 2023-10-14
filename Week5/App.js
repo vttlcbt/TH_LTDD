@@ -1,25 +1,31 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import ShowPhone from "./Lab03/screen1";
-import Lab03a from "./Lab03/screen2";
+import { StyleSheet } from "react-native";
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import Screen_One from "./lab3/Screen_One";
+import Screen_Two from "./lab3/Screen_Two";
 
-export default function App() {
+const App = () => {
+  const Stack = createNativeStackNavigator();
   return (
-    // <View style={styles.container}>
-    //   <Text>Open up App.js to start working on your app!</Text>
-    // </View>
-
-    //Week5_Lab3
-    <ShowPhone />
-    // <Lab03a/>
+    //  điều hướng các màn hình
+    // NavigationContainer Đóng gói toàn bộ ứng dụng
+    <NavigationContainer>
+      <Stack.Navigator
+        // Quản lý các màn hình
+        initialRouteName="Screen_One"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="Screen_One" component={Screen_One} />
+        {/*Stack.Screen các thành phần của màn hình  */}
+        <Stack.Screen name="Screen_Two" component={Screen_Two} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+export default App;
+
+const styles = StyleSheet.create({});

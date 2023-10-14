@@ -1,20 +1,43 @@
 import * as React from "react";
-import { StatusBar } from "expo-status-bar";
 import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
+  Dimensions,
   Image,
   Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
-export default function ShowPhone() {
+export default function Screen_One(props) {
+  const { navigation, route } = props;
+  const { navigate, goBack } = navigation;
+  const colorRef = route.params ? route.params.color || "blue" : "blue";
+  // Lấy kích thước toàn màn hình
+  const screenWidth = Dimensions.get("window").width;
+  const screenHeight = Dimensions.get("window").height;
+
+  const [start, setStart] = React.useState([
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 },
+    { id: 5 },
+  ]);
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/vs_blue.png")}
+        source={
+          colorRef == "white"
+            ? require("../assets/mobile1.png")
+            : colorRef == "red"
+            ? require("../assets/mobile2.png")
+            : colorRef == "black"
+            ? require("../assets/mobile3.png")
+            : colorRef == "blue"
+            ? require("../assets/mobile4.png")
+            : require("../assets/mobile4.png")
+        }
         style={styles.img_phone}
       />
       <Text>Điện Thoại Vsmart Joy 3 - Hàng chính hãng</Text>
@@ -47,11 +70,18 @@ export default function ShowPhone() {
         <Text style={styles.text1}>1.790.000 đ</Text>
         <Text style={styles.text2}>1.790.000 đ</Text>
       </View>
+
       <View style={styles.viewChonMau}>
         <Pressable style={styles.pressChonMau}>
-          <Text style={styles.text3}>4 MÀU-CHỌN MÀU</Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigate("Screen_Two");
+            }}
+          >
+            <Text style={styles.text3}>4 MÀU-CHỌN MÀU</Text>
+          </TouchableOpacity>
           <Image
-            source={require("../assets/toright.png")}
+            source={require("../assets/right.png")}
             style={{
               width: 12,
               height: 18,
