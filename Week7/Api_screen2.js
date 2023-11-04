@@ -20,7 +20,10 @@ export default function Hinh2({ navigation }) {
               navigation.navigate(Hinh1)
             }}
           >
-            <Text>Back</Text>
+            <Image
+              style={{ width: 30, height: 30, marginRight: 10 }}
+              source={require("./assets/muiTen.png")}
+            />
           </Pressable>
         </View>
         <View
@@ -51,8 +54,22 @@ export default function Hinh2({ navigation }) {
           placeholder="Search"
         ></TextInput>
       </View>
-      <View style={styles.listTodo}>
-        <Text>List</Text>
+      <View style={styles.todoList}>
+        <View style={styles.todoItem}>
+          <View style={styles.item1}>
+            <Image
+              style={{ width: 30, height: 30, marginRight: 10 }}
+              source={require("./assets/checked.png")}
+            />
+            <Text>List</Text>
+          </View>
+          <View style={styles.item1}>
+            <Image
+              style={{ width: 30, height: 30, marginRight: 10 }}
+              source={require("./assets/edit.png")}
+            />
+          </View>
+        </View>
       </View>
       <Pressable
         style={styles.next}
@@ -60,28 +77,50 @@ export default function Hinh2({ navigation }) {
           navigation.navigate(Hinh3)
         }}
       >
-        <Text>Next</Text>
+        <Image
+          style={{ width: 30, height: 30 }}
+          source={require("./assets/addSymbol.png")}
+        />
       </Pressable>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  listTodo: {
-    margin: "2%",
+  item1: {
+    // backgroundColor: "#475B6C",
+    flexDirection: "row",
+    // width: "45%",
+    // height: "100%",
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
+  todoItem: {
+    backgroundColor: "#A6D4FF",
+    flexDirection: "row",
+    width: "100%",
+    height: "11%",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: "8%",
+    borderRadius: 25,
+  },
+  todoList: {
     flex: 1,
     backgroundColor: "#D1F8FF",
-    width: "80%",
+    width: "100%",
     height: "10%",
     justifyContent: "center",
     alignItems: "center",
+    padding: "5%",
+    margin: "3%",
   },
   next: {
     width: 60,
     height: 60,
     borderRadius: "50%",
     backgroundColor: "#98D1FF",
-    margin: "2%",
+    // margin: "2%",
     justifyContent: "center",
     alignItems: "center",
   },

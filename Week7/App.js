@@ -12,7 +12,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <stack.Navigator
-        initialRouteName="Hinh3"
+        initialRouteName="Hinh2"
         screenOptions={{ headerShown: false }}
       >
         <stack.Screen name="Hinh1" component={Hinh1} />

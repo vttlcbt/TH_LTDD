@@ -37,7 +37,10 @@ export default function Hinh3({ navigation }) {
               navigation.navigate(Hinh2)
             }}
           >
-            <Text>Back</Text>
+            <Image
+              style={{ width: 30, height: 30, marginRight: 10 }}
+              source={require("./assets/muiTen.png")}
+            />
           </Pressable>
         </View>
       </View>

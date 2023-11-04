@@ -22,7 +22,7 @@ export default function Hinh1({ navigation }) {
       <View style={styles.input}>
         <Image
           style={{ width: 30, height: 30, marginRight: 10 }}
-          source={require("./assets/icon.png")}
+          source={require("./assets/mail.png")}
         />
         <TextInput
           style={{ width: "100%", height: "100%" }}
@@ -36,7 +36,7 @@ export default function Hinh1({ navigation }) {
             navigation.navigate(Hinh2)
           }}
         >
-          <Text>Get Start</Text>
+          <Text>Get Start →</Text>
         </Pressable>
       </View>
     </View>
