@@ -23,8 +23,13 @@ export default function Hinh3({ navigation }) {
           }}
         >
           <Image
-            style={{ width: 50, height: 50, marginRight: 10 }}
-            source={require("./assets/favicon.png")}
+            style={{
+              width: 50,
+              height: 50,
+              marginRight: 10,
+              borderRadius: "50%",
+            }}
+            source={require("./assets/avt.png")}
           />
           <View>
             <Text style={{ fontWeight: "bold", fontSize: 18 }}>Hi Twinkle</Text>
@@ -47,7 +52,7 @@ export default function Hinh3({ navigation }) {
       <View style={styles.input}>
         <Image
           style={{ width: 30, height: 30, marginRight: 10 }}
-          source={require("./assets/favicon.png")}
+          source={require("./assets/list.png")}
         />
         <TextInput
           style={{ width: "100%", height: "100%" }}
@@ -77,7 +82,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
   },
   btnFinish: {
     backgroundColor: "#00BDD6",

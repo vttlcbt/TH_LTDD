@@ -35,8 +35,13 @@ export default function Hinh2({ navigation }) {
           }}
         >
           <Image
-            style={{ width: 50, height: 50, marginRight: 10 }}
-            source={require("./assets/favicon.png")}
+            style={{
+              width: 50,
+              height: 50,
+              marginRight: 10,
+              borderRadius: "50%",
+            }}
+            source={require("./assets/avt.png")}
           />
           <View>
             <Text style={{ fontWeight: "bold", fontSize: 18 }}>Hi Twinkle</Text>
@@ -47,7 +52,7 @@ export default function Hinh2({ navigation }) {
       <View style={styles.input}>
         <Image
           style={{ width: 30, height: 30, marginRight: 10 }}
-          source={require("./assets/favicon.png")}
+          source={require("./assets/search.png")}
         />
         <TextInput
           style={{ width: "100%", height: "100%" }}
@@ -61,7 +66,7 @@ export default function Hinh2({ navigation }) {
               style={{ width: 30, height: 30, marginRight: 10 }}
               source={require("./assets/checked.png")}
             />
-            <Text>List</Text>
+            <Text style={{ fontWeight: "bold" }}>List</Text>
           </View>
           <View style={styles.item1}>
             <Image
@@ -96,7 +101,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   todoItem: {
-    backgroundColor: "#A6D4FF",
+    backgroundColor: "#DEE1E6",
     flexDirection: "row",
     width: "100%",
     height: "11%",
@@ -107,7 +112,7 @@ const styles = StyleSheet.create({
   },
   todoList: {
     flex: 1,
-    backgroundColor: "#D1F8FF",
+    // backgroundColor: "#D1F8FF",
     width: "100%",
     height: "10%",
     justifyContent: "center",
