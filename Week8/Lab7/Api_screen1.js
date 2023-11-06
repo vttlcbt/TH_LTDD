@@ -15,14 +15,14 @@ export default function Hinh1({ navigation }) {
       <View>
         <Image
           style={{ width: 150, height: 150 }}
-          source={require("./assets/avt.png")}
+          source={require("./assets/Picture1.png")}
         />
       </View>
       <Text>MANAGE YOUR TASK</Text>
       <View style={styles.input}>
         <Image
           style={{ width: 30, height: 30, marginRight: 10 }}
-          source={require("./assets/avt.png")}
+          source={require("./assets/mail.png")}
         />
         <TextInput
           style={{ width: "100%", height: "100%" }}

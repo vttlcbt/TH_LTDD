@@ -71,7 +71,7 @@ export default function Hinh3({ navigation }) {
       </View>
       <Image
         style={{ width: 120, height: 120, marginTop: 10 }}
-        source={require("./assets/avt.png")}
+        source={require("./assets/Picture1.png")}
       />
     </View>
   )
