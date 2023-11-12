@@ -33,7 +33,7 @@ export default function Hinh1({ navigation }) {
         <Pressable
           style={styles.btnTo}
           onPress={() => {
-            navigation.navigate(Hinh2)
+            navigation.navigate("Hinh2")
           }}
         >
           <Text>Get Start →</Text>

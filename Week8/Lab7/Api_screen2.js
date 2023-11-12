@@ -11,10 +11,13 @@ import {
 import Hinh1 from "./Api_screen1"
 import Hinh3 from "./Api_screen3"
 import { useState, useEffect } from "react"
+import Hinh4 from "./Api_screen4_update"
 
 const data = []
 
-export default function Hinh2({ navigation }) {
+export default function Hinh2(props) {
+  const { navigation, route } = props
+
   useEffect(() => {
     fetch("https://65488984dd8ebcd4ab230c44.mockapi.io/Todos")
       .then((response) => response.json())
@@ -25,6 +28,7 @@ export default function Hinh2({ navigation }) {
 
   var [data, setDT] = useState([])
   var [count, setCount] = useState(0)
+  var [numID, setNum] = useState(0)
 
   return (
     <View style={styles.container}>
@@ -32,7 +36,7 @@ export default function Hinh2({ navigation }) {
         <View>
           <Pressable
             onPress={() => {
-              navigation.navigate(Hinh1)
+              navigation.navigate("Hinh1")
             }}
           >
             <Image
@@ -94,19 +98,14 @@ export default function Hinh2({ navigation }) {
                       source={require("./assets/checked.png")}
                     />
                   </Pressable>
-                  <Text style={{ fontWeight: "bold" }}>{item.name}</Text>
+                  <Text style={{ fontWeight: "bold" }}>{item.content}</Text>
+                  {/* <Text style={{ fontWeight: "bold" }}>---{item.id}</Text> */}
                 </View>
                 <View style={styles.item1}>
                   <Pressable
                     onPress={() => {
-                      fetch(
-                        "https://65488984dd8ebcd4ab230c44.mockapi.io/Todos",
-                        {
-                          method: "POST",
-                          body: JSON.stringify({ name: "0000000000000" }),
-                        }
-                      )
-                      console.log("SS")
+                      // alert(item.id)
+                      navigation.navigate("Hinh4", item.id)
                     }}
                   >
                     <Image
@@ -123,7 +122,7 @@ export default function Hinh2({ navigation }) {
       <Pressable
         style={styles.next}
         onPress={() => {
-          navigation.navigate(Hinh3)
+          navigation.navigate("Hinh3")
         }}
       >
         <Image

@@ -11,33 +11,13 @@ import Hinh1 from "./Api_screen1"
 import Hinh2 from "./Api_screen2"
 import * as React from "react"
 
-export default function Hinh3({ navigation }) {
+export default function Hinh4(props) {
+  const { navigation, route } = props
+  const num = route.params
   const [text, setText] = React.useState("")
   return (
     <View style={styles.container}>
       <View style={styles.head}>
-        <View
-          style={{
-            flexDirection: "row",
-            width: "50%",
-            height: "100%",
-            justifyContent: "flex-start",
-          }}
-        >
-          <Image
-            style={{
-              width: 50,
-              height: 50,
-              marginRight: 10,
-              borderRadius: "50%",
-            }}
-            source={require("./assets/avt.png")}
-          />
-          <View>
-            <Text style={{ fontWeight: "bold", fontSize: 18 }}>Hi Twinkle</Text>
-            <Text>Have a nice day</Text>
-          </View>
-        </View>
         <View>
           <Pressable
             onPress={() => {
@@ -50,6 +30,14 @@ export default function Hinh3({ navigation }) {
             />
           </Pressable>
         </View>
+        <Pressable
+          onPress={() => {
+            console.log(num)
+          }}
+        >
+          <Text style={styles.text1}>Update your job</Text>
+        </Pressable>
+        <Text style={styles.text1}>No.Job: {num}</Text>
       </View>
       <View style={styles.input}>
         <Image
@@ -66,8 +54,8 @@ export default function Hinh3({ navigation }) {
         <Pressable
           style={styles.btnFinish}
           onPress={() => {
-            fetch("https://65488984dd8ebcd4ab230c44.mockapi.io/Todos", {
-              method: "POST",
+            fetch("https://65488984dd8ebcd4ab230c44.mockapi.io/Todos/" + num, {
+              method: "PUT",
               body: JSON.stringify({ name: "Tuyen", content: text }),
               headers: {
                 "Content-type": "application/json; charset=UTF-8",
@@ -77,12 +65,11 @@ export default function Hinh3({ navigation }) {
               .then((json) => {
                 console.log(json)
               })
-            console.log(text)
             console.log("SS")
             navigation.navigate("Hinh2")
           }}
         >
-          <Text style={styles.text1}>FINISH</Text>
+          <Text style={styles.text1}>UPDATE</Text>
         </Pressable>
       </View>
       <Image
@@ -128,7 +115,7 @@ const styles = StyleSheet.create({
     marginTop: "5%",
   },
   head: {
-    backgroundColor: "#BED8FF",
+    backgroundColor: "#2457A8",
     flexDirection: "row",
     width: "100%",
     height: "10%",

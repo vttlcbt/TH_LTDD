@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import Hinh1 from "./Lab7/Api_screen1"
 import Hinh2 from "./Lab7/Api_screen2"
 import Hinh3 from "./Lab7/Api_screen3"
+import Hinh4 from "./Lab7/Api_screen4_update"
 
 const stack = createNativeStackNavigator()
 
@@ -18,6 +19,7 @@ export default function App() {
         <stack.Screen name="Hinh1" component={Hinh1} />
         <stack.Screen name="Hinh2" component={Hinh2} />
         <stack.Screen name="Hinh3" component={Hinh3} />
+        <stack.Screen name="Hinh4" component={Hinh4} />
       </stack.Navigator>
     </NavigationContainer>
     // <Hinh1/>
